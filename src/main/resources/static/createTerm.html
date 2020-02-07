@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Create Term</title>
+    <link href="link/stylishish.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script>
+		//This Script will create Term Codes and a function to populate the term code drop down selection
+		function getCurrentYear()
+		{
+			var todaysDate = new Date();		//create a date object with current date
+			return todaysDate.getFullYear();	//get the four digit year from the current date
+		}
+		let termCode = [getCurrentYear() + "01", getCurrentYear() + "02", getCurrentYear() + "03", getCurrentYear() + 1 + "01", getCurrentYear() + 1 + "02", getCurrentYear() + 1 + "03"];
+        
+		function createTermCodeDropdown() 
+		{
+			for (let i=0; i < termCode.length; i++)
+			{
+				let output = ("<option value='" + termCode[i]+ "'>" + termCode[i] + "</option>");
+				document.querySelector("#termCode").innerHTML += output; 
+			}
+		}
+	</script>
+</head>
+
+<body onLoad="createTermCodeDropdown()">
+    <div class="main">
+        <form>
+            <h2>Create a Term</h2>
+			<label>Term Code: </label>
+				<select name="termCode" id="termCode">
+					<option value="">Please select a term</option>
+				</select></br></br>
+			<label>Term Start: </label><input type="date" name="termStart" /><br/><br/>
+			<label>Term End: </label><input type="date" name="termEnd" /><br/><br/>
+			<input type="submit" value=" Add "/><br/>
+        </form>
+    </div>
+</body>
+</html>
