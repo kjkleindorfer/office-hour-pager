@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Contact</title>
+</head>
+<body>
+ <form th:object="${newUser}" th:action="@{/addNewUser}" method='POST'>
+ 
+ Email: <input name="email" size="20"> <br />
+ Admin? <input type="checkbox" name="admin">
+ 
+ 
+        
+ <input name="submit" type="submit" value="submit" />
+         
+</form>
+<a href="viewAll">View all Contacts</a>
+</body>
+</html>
