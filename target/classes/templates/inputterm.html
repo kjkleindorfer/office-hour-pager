@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Term</title>
+</head>
+<body>
+ <form th:object="${newTerm}" th:action="@{/addNewTerm}" method='POST'>
+ 
+ Begin Date: <input name="startdate" size="20"> <br />
+ End Date: <input name="enddate" size="20"> <br />
+ 
+ 
+        
+ <input name="submit" type="submit" value="submit" />
+         
+</form>
+<a href="viewAllTerms">View all Terms</a>
+</body>
+</html>
