@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Terms</title>
+</head>
+<body>
+<form>
+<table border = "1" >
+<tr>
+<th>Term ID</th><th>Start Date</th><th>End Date</th>
+</tr>
+<tr th:each="currentTerm : ${terms}" >
+ <td th:text="${currentTerm.id}" />
+    <td th:text="${currentTerm.startdate}" />
+    <td th:text="${currentTerm.enddate}" />
+    
+
+   <td><a th:href="@{/edit/{id}(id=${currentTerm.id})}">Edit</a></td>
+    <td><a th:href="@{/delete/{id}(id=${currentTerm.id})}">Delete</a></td>
+</tr>
+</table>
+</form>
+<a href="../addNewTerm">Add a new Term</a>
+</body>
+</html>
