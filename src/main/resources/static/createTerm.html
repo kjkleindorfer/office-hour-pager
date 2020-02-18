@@ -1,4 +1,6 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Create Term</title>
@@ -32,11 +34,11 @@
         <form>
             <h2>Create a Term</h2>
 			<label>Term Code: </label>
-				<select name="termCode" id="termCode">
+				<select name="termCode" id="termCode" th:field="*{termCode}">
 					<option value="">Please select a term</option>
-				</select></br></br>
-			<label>Term Start: </label><input type="date" name="termStart" /><br/><br/>
-			<label>Term End: </label><input type="date" name="termEnd" /><br/><br/>
+				</select>
+			<label>Term Start: </label><input type="date" th:field="*{startDate}" name="startDate" /><br/><br/>
+			<label>Term End: </label><input type="date" th:field="*{endDate}" name="endDate" /><br/><br/>
 			<input type="submit" value=" Add "/><br/>
         </form>
     </div>

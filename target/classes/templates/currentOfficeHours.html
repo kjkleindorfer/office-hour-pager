@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Currently Available for Office Hours</title>
+<style>
+body {
+	font-family: sans-serif;
+}
+
+label {
+	font-weight: bold;
+	width: 100px;
+}
+
+.box {
+	border: #666666 solid 1px;
+}
+</style>
+
+</head>
+<body>
+	<h1>
+		<span th:utext="${userName}"></span>
+	</h1>
+	<div align="center">
+		<div style="width: 600px; border: solid 1px #333333;" align="left">
+			<div style="background-color: #333333; color: #FFFFFF; padding: 3px;">
+				<b>Available for Office Hour</b>
+			</div>
+			<div style="margin: 30px">
+
+				<!-- <form th:action="@{/recordVisit}" method="POST" class="form-signin">
+
+					<table>
+						<tr th:each="currentHour : ${currentHours}"
+							th:object="${officeHour}">
+							<td th:text="${currentHour.id}" />
+							<td><button class="btn btn-lg btn-primary btn-block"
+									name="${currentHour.user.id}" value="${currentHour.user.id}"
+									type="Submit" th:text="${currentHour.user.name}"></button></td>
+
+							<td th:text="${currentHour.user.name}" />
+							 <td th:text="${currentHour.term.termCode}" />
+							<td th:text="${currentHour.dayOfWeek}" />
+							<td th:text="${currentHour.hourStart}" />
+							<td th:text="${currentHour.hourEnd}" />
+
+						</tr>
+					</table>
+					<span class="text-success" th:utext="${successMessage}"></span>
+				</form> -->
+
+				<table>
+				<tr><td><span class="text-success" th:utext="${successMessage}"></span></td></tr>
+					<tr th:each="currentHour : ${currentHours}"
+						th:object="${officeHour}">
+						<td><a
+							th:href="@{/recordVisit/{id}(id=${currentHour.user.id})}">
+								<button class="btn btn-lg btn-primary btn-block"
+									name="${currentHour.user.id}" value="${currentHour.user.id}"
+									type="Submit" th:text="${currentHour.user.name}"></button>
+						</a></td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

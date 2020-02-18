@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>View All Office Hours</title>
+<style>
+body {
+	font-family: sans-serif;
+}
+
+label {
+	font-weight: bold;
+	width: 100px;
+}
+
+.box {
+	border: #666666 solid 1px;
+}
+</style>
+
+</head>
+<body>
+	<h1>
+		<span th:utext="${userName}"></span>
+	</h1>
+	<div align="center">
+		<div style="width: 600px; border: solid 1px #333333;" align="left">
+			<div style="background-color: #333333; color: #FFFFFF; padding: 3px;">
+				<b>View Entered Office Hour</b>
+			</div>
+			<div style="margin: 30px">
+				<table>
+					<tr th:each="currentHour : ${enteredHours}">
+						<td th:text="${currentHour.id}" />
+						<td th:text="${currentHour.user.name}" />
+						<td th:text="${currentHour.term.termCode}" />
+						<td th:text="${currentHour.dayOfWeek}" />
+						<td th:text="${currentHour.hourStart}" />
+						<td th:text="${currentHour.hourEnd}" />
+						<td><a th:href="@{/edit/{id}(id=${currentHour.id})}">Edit</a></td>
+						<td><a th:href="@{/delete/{id}(id=${currentHour.id})}">Delete</a></td>
+					</tr>
+				</table>
+
+				<a href="/userLandingPage">Return to Main Menu</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

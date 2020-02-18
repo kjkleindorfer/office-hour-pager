@@ -3,9 +3,10 @@ package dmacc.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import dmacc.model.Term;
+import dmacc.model.Role;
 
 @Repository
-public interface TermRepository extends JpaRepository<Term, Integer>{
-	Term findByTermCode(int termCode);
+public interface RoleRepository extends JpaRepository<Role, Integer> {
+    Role findByRole(String role);
+
 }

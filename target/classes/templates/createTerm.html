@@ -31,15 +31,19 @@
 
 <body onLoad="createTermCodeDropdown()">
     <div class="main">
-        <form>
+        <form autocomplete="off" action="#" th:action="@{/createTerm}"
+                  th:object="${term}" method="post" class="form-horizontal"
+                  role="form">
             <h2>Create a Term</h2>
-			<label>Term Code: </label>
-				<select name="termCode" id="termCode" th:field="*{termCode}">
+			<label>Term Code: </label>  <input type="text" th:field="*{termCode}" name="termCode" /><br/><br/>
+				<!--  <select name="termCode" id="termCode" th:field="*{termCode}">
 					<option value="">Please select a term</option>
-				</select>
+				</select>-->
 			<label>Term Start: </label><input type="date" th:field="*{startDate}" name="startDate" /><br/><br/>
 			<label>Term End: </label><input type="date" th:field="*{endDate}" name="endDate" /><br/><br/>
 			<input type="submit" value=" Add "/><br/>
+			
+			<h2><span class="text-success" th:utext="${successMessage}"></span></h2>
         </form>
     </div>
 </body>

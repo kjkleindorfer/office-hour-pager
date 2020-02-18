@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import dmacc.beans.Term;
-import dmacc.beans.User;
+import dmacc.model.Term;
+import dmacc.model.User;
 import dmacc.repository.TermRepository;
 import dmacc.repository.UserRepository;
 
-@Controller
+
 public class WebController {
 	@Autowired
 	TermRepository termRepo;
@@ -28,7 +28,7 @@ public class WebController {
 	
 	@PostMapping("/addNewUser")
 	public String addNewContact(@ModelAttribute User u, Model model) {
-		repo.save(u);
+		//repo.save(u);
 		model.addAttribute("users", repo.findAll());
 		return "results";
 	}
@@ -49,7 +49,7 @@ public class WebController {
 	
 	@PostMapping("/addNewTerm")
 	public String addNewSemester(@ModelAttribute Term t, Model model) {
-		termRepo.save(t);
+		//termRepo.save(t);
 		model.addAttribute("terms", termRepo.findAll());
 		return "resultsterm";
 	}
