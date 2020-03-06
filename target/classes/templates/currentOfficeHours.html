@@ -23,6 +23,12 @@ label {
 .box {
 	border: #666666 solid 1px;
 }
+
+td {
+  padding-bottom:10px;
+  align-items:center;
+  justify-content:center;
+}
 </style>
 
 </head>
@@ -31,11 +37,11 @@ label {
 		<span th:utext="${userName}"></span>
 	</h1>
 	<div align="center">
-		<div style="width: 600px; border: solid 1px #333333;" align="left">
+		<div style="width: 400px; border: solid 1px #333333;" align="left">
 			<div style="background-color: #333333; color: #FFFFFF; padding: 3px;">
 				<b>Available for Office Hour</b>
 			</div>
-			<div style="margin: 30px">
+			<div style="margin: 40px">
 
 				<!-- <form th:action="@{/recordVisit}" method="POST" class="form-signin">
 
@@ -62,16 +68,17 @@ label {
 				<tr><td><span class="text-success" th:utext="${successMessage}"></span></td></tr>
 					<tr th:each="currentHour : ${currentHours}"
 						th:object="${officeHour}">
-						<td><a
-							th:href="@{/recordVisit/{id}(id=${currentHour.user.id})}">
+					
+						<td>
+						<a th:href="@{/recordVisit/{id}(id=${currentHour.user.id})}">
 								<button class="btn btn-lg btn-primary btn-block"
 									name="${currentHour.user.id}" value="${currentHour.user.id}"
 									type="Submit" th:text="${currentHour.user.name}"></button>
-						</a></td>
+						</a>
+						</td>
+						
 					</tr>
 				</table>
-
-			</div>
 		</div>
 	</div>
 </body>

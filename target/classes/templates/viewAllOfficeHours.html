@@ -32,8 +32,8 @@ label {
 			<div style="margin: 30px">
 				<table>
 					<tr th:each="currentHour : ${enteredHours}">
-						<td th:text="${currentHour.id}" />
-						<td th:text="${currentHour.user.name}" />
+						<!-- <td th:text="${currentHour.id}" />
+						<td th:text="${currentHour.user.name}" /> -->
 						<td th:text="${currentHour.term.termCode}" />
 						<td th:text="${currentHour.dayOfWeek}" />
 						<td th:text="${currentHour.hourStart}" />

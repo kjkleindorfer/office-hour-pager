@@ -28,8 +28,10 @@ public class OfficeHour {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "hour_id")
 	private int id;
+	
 	@ManyToOne
 	private User user;
+	
 	@ManyToOne
 	private Term term;
 	
